@@ -1,0 +1,332 @@
+@import "partials/reset";
+
+$full-height: 100%;
+$full-width: 100%;
+$orange: #E45F56;
+$green: #A3D39C;
+$light-blue-green: #7ACCC8;
+$blue-green: #4AAAA5;
+$dark-blue: #35404F;
+
+html, body{
+  height: $full-height;
+  width: $full-width;
+}
+
+h1{
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	font-size: 5em;
+}
+
+h2{
+	font-family: 'Oswald', sans-serif;
+	font-size: 2em;
+}
+
+button{
+	padding: 1em;
+	font-family: 'Quattrocento', serif;
+	border-width: 2px;
+	box-shadow:none;
+	border-radius: 12px;
+	outline: none;
+}
+
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.hidden-buttons{
+	width: $full-width;
+	height: $full-height;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	text-align: center;
+	border-radius: 12px;
+}
+
+.table {
+	width: $full-width;
+	display: table;
+	table-layout: fixed; //same width for all the table cells
+	border-spacing: 5em; //control spacing between table cells
+	border-collapse: separate;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;		
+	position: relative;
+	border: solid $blue-green;
+}
+
+.round-corners{
+	border-radius: 15px;
+}
+
+.italic{
+	font-style: italic;
+}
+
+.center{
+	text-align: center;
+}
+.orange{
+	color: $orange;
+}
+
+.green{
+	color: $green;
+}
+
+.light-blue-green{
+	color: $light-blue-green;
+}
+
+.blue-green{
+	color: $blue-green;
+}
+
+.dark-blue{
+	color: $dark-blue;
+}
+
+@mixin center-vertical{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#main-page{
+	width: $full-width;
+	height: $full-height;
+	overflow: auto;
+
+	#main-page-content{
+		@include center-vertical;
+
+		h2{
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		button{
+			font-size: 1.2em;
+			background-color:transparent;
+			color: $dark-blue;
+			border: solid $dark-blue;
+			border-width: 2px;
+			margin-left: 1em;
+			margin-right: 1em;
+		}
+
+		button:hover{
+			background-color: $dark-blue;
+			color: white;
+		}
+	}
+
+}
+
+#who-is-alice-page{
+	width: $full-width;
+	height: $full-height;
+	overflow: auto;
+
+	h1{
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	h2{
+		width: 70%;
+		text-align: justify;
+		line-height: 130%;
+		margin: 0 auto;
+		margin-bottom: 1em;
+
+		span:hover{
+			text-decoration: underline;
+		}
+	}
+}
+
+#projects-page{
+	width: $full-width;
+	height: $full-height;
+	text-align: center;
+	overflow: auto;
+
+
+	h1{
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	#projects-list{
+
+		margin: auto;
+  		position: relative;
+
+		ul{
+			li{
+				text-align: center;
+				padding: 2em;
+
+				h2{
+					color: $blue-green;
+				}
+
+				p{
+					font-family: 'Quattrocento', serif;
+					font-size: 1em;
+					line-height: 120%;
+					margin-top: 1em;
+					margin-bottom: 1em;
+				}
+
+				button{
+					font-size: 1.2em;
+					background-color:white;
+					color: $blue-green;
+					border:solid white;
+					@include center-vertical;
+				}
+
+				button:hover{
+					text-decoration: underline;
+				}				
+			}
+		}
+	}
+
+	#projects-list ul li:hover .hidden-buttons{
+		display: block;
+		background: rgba(74, 170, 165, 0.7);
+	}
+
+	button{
+		font-size: 1.2em;
+		background-color:white;
+		color: $blue-green;
+		border:solid $blue-green;
+		border-width: 2px;
+	}
+
+	button:hover{
+		background-color: $blue-green;
+		color: white;
+	}
+}
+
+#follow-me-page{
+	width: $full-width;
+	height: $full-height;
+	overflow: auto;
+
+	#follow-me-page-content{
+		@include center-vertical;
+	}
+
+	h2{
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	button{
+		font-size: 1.2em;
+		background-color:transparent;
+		color: $dark-blue;
+		border: solid $dark-blue;
+		border-width: 2px;
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+
+	button:hover{
+		background-color: $dark-blue;
+		color: white;
+	}
+}
+
+/*
+font-family: 'Raleway', sans-serif;
+font-weight: 400;
+
+font-family: 'Bitter', serif;
+font-weight: 700;
+
+	div{	
+		@include split-in-five;
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+
+		font-size: 10em;
+		opacity: 0.7;
+    	filter: alpha(opacity=70);
+	}
+
+			li:after{
+			position: absolute;
+			visibility: hidden;
+			content:"bout";
+ 
+		}
+
+		li:hover:after{
+			visibility: visible;
+		}
+
+			ul{
+		display: table-row;
+		color: white;
+		font-size: 10em;
+
+		li{
+			@include split-in-five;
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			opacity: 0.9;
+    		filter: alpha(opacity=90);
+
+    		span{
+    			width: auto;
+    			display: block;
+    			border: solid red;
+    			border-width: 1px;
+    		}
+		}
+
+		#a-about{
+			background-color: $orange;
+		}
+
+		#l-projects{
+			background-color: $green;
+		}
+
+		#i-none{
+			background-color: $light-blue-green;
+		}
+
+		#c-contacts{
+			background-color: $blue-green;
+		}
+
+		#e-none{
+			background-color: $dark-blue;
+		}
+
+	}
+*/
